@@ -1,6 +1,6 @@
 {
     "name": "metalsmith-links",
-    "version": "1.0.2",
+    "version": "1.0.0",
     "description": "Add a link function to your file objects so other Metalsmith plugins can create links more easily.",
     "tags": [
         "metalsmith",
@@ -23,6 +23,7 @@
     },
     "homepage": "https://github.com/tests-always-included/metalsmith-links#readme",
     "dependencies": {
+        "debug": "^2.5.2",
         "minimatch": "^3.0.3"
     },
     "devDependencies": {
