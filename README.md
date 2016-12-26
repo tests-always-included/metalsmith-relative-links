@@ -1,5 +1,5 @@
-metalsmith-links
-================
+metalsmith-relative-links
+=========================
 
 Metalsmith plugin that adds functions to the metadata that assist with creating links to other resources.
 
@@ -58,7 +58,7 @@ Installation
 
 `npm` can do this for you.
 
-    npm install --save metalsmith-links
+    npm install --save metalsmith-relative-links
 
 
 Usage
@@ -67,7 +67,7 @@ Usage
 Include this like you would include any other plugin.
 
     // Load this, just like other plugins.
-    var links = require("metalsmith-links");
+    var links = require("metalsmith-relative-links");
 
     // Then in your list of plugins you use it.
     .use(links())
@@ -128,18 +128,18 @@ This uses Jasmine, Istanbul and ESLint for tests.
 This plugin is licensed under the [MIT License][License] with an additional non-advertising clause.  See the [full license text][License] for information.
 
 
-[codecov-badge]: https://codecov.io/github/tests-always-included/metalsmith-links/coverage.svg?branch=master
-[codecov-link]: https://codecov.io/github/tests-always-included/metalsmith-links?branch=master
-[dependencies-badge]: https://david-dm.org/tests-always-included/metalsmith-links.png
-[dependencies-link]: https://david-dm.org/tests-always-included/metalsmith-links
-[devdependencies-badge]: https://david-dm.org/tests-always-included/metalsmith-links/dev-status.png
-[devdependencies-link]: https://david-dm.org/tests-always-included/metalsmith-links#info=devDependencies
+[codecov-badge]: https://codecov.io/github/tests-always-included/metalsmith-relative-links/coverage.svg?branch=master
+[codecov-link]: https://codecov.io/github/tests-always-included/metalsmith-relative-links?branch=master
+[dependencies-badge]: https://david-dm.org/tests-always-included/metalsmith-relative-links.png
+[dependencies-link]: https://david-dm.org/tests-always-included/metalsmith-relative-links
+[devdependencies-badge]: https://david-dm.org/tests-always-included/metalsmith-relative-links/dev-status.png
+[devdependencies-link]: https://david-dm.org/tests-always-included/metalsmith-relative-links#info=devDependencies
 [License]: LICENSE.md
 [metalsmith-hbt-md]: https://github.com/ahdiaz/metalsmith-hbt-md
 [metalsmith-ancestry]: https://github.com/tests-always-included/metalsmith-ancestry
 [minimatch]: https://github.com/isaacs/minimatch
 [Mustache]: https://mustache.github.io/
-[npm-badge]: https://badge.fury.io/js/metalsmith-links.svg
-[npm-link]: https://npmjs.org/package/metalsmith-links
-[travis-badge]: https://secure.travis-ci.org/tests-always-included/metalsmith-links.png
-[travis-link]: http://travis-ci.org/tests-always-included/metalsmith-links
+[npm-badge]: https://badge.fury.io/js/metalsmith-relative-links.svg
+[npm-link]: https://npmjs.org/package/metalsmith-relative-links
+[travis-badge]: https://secure.travis-ci.org/tests-always-included/metalsmith-relative-links.png
+[travis-link]: http://travis-ci.org/tests-always-included/metalsmith-relative-links

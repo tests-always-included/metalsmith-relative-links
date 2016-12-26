@@ -4,7 +4,7 @@ var links;
 
 links = require("..");
 
-describe("metalsmith-links", function () {
+describe("metalsmith-relative-links", function () {
     /**
      * Runs the plugin.  The Metalsmith object is not used, so `null`
      * is passed instead.  The whole plugin operates synchronously, so

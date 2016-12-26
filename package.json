@@ -1,5 +1,5 @@
 {
-    "name": "metalsmith-links",
+    "name": "metalsmith-relative-links",
     "version": "1.0.0",
     "description": "Add a link function to your file objects so other Metalsmith plugins can create links more easily.",
     "tags": [
@@ -14,14 +14,14 @@
     },
     "repository": {
         "type": "git",
-        "url": "https://github.com/tests-always-included/metalsmith-links.git"
+        "url": "https://github.com/tests-always-included/metalsmith-relative-links.git"
     },
     "author": "Tyler Akins",
     "license": "MIT",
     "bugs": {
-        "url": "https://github.com/tests-always-included/metalsmith-links/issues"
+        "url": "https://github.com/tests-always-included/metalsmith-relative-links/issues"
     },
-    "homepage": "https://github.com/tests-always-included/metalsmith-links#readme",
+    "homepage": "https://github.com/tests-always-included/metalsmith-relative-links#readme",
     "dependencies": {
         "debug": "^2.5.2",
         "minimatch": "^3.0.3"
