@@ -1,0 +1,34 @@
+{
+    "name": "metalsmith-links",
+    "version": "1.0.2",
+    "description": "Add a link function to your file objects so other Metalsmith plugins can create links more easily.",
+    "tags": [
+        "metalsmith",
+        "plugin",
+        "links"
+    ],
+    "main": "lib/index.js",
+    "scripts": {
+        "test": "istanbul cover jasmine-node --captureExceptions lib spec && eslint lib spec && codecov",
+        "watch": "jasmine-node --autotest lib spec"
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/tests-always-included/metalsmith-links.git"
+    },
+    "author": "Tyler Akins",
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/tests-always-included/metalsmith-links/issues"
+    },
+    "homepage": "https://github.com/tests-always-included/metalsmith-links#readme",
+    "dependencies": {
+        "minimatch": "^3.0.3"
+    },
+    "devDependencies": {
+        "codecov": "^1.0.1",
+        "eslint": "^3.12.2",
+        "istanbul": "^0.4.5",
+        "jasmine-node": "^1.14.5"
+    }
+}
