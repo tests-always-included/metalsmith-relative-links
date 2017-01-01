@@ -64,7 +64,19 @@ Installation
 Usage
 -----
 
-Include this like you would include any other plugin.
+Include this like you would include any other plugin.  Here is the CLI example that also shows the default options.  You don't need to specify any options unless you wish to override their values.
+
+    {
+        "plugins": {
+            "metalsmith-relative-links": {
+                "linkProperty": "link",
+                "match": "**/*.{htm,html}",
+                "matchOptions": {}
+            }
+        }
+    }
+
+And here is how to use JavaScript to include the plugin along with a brief description of each option.  The JavaScript version also lets you modify the links using your own function with the `modifyLinks` configuration option.
 
     // Load this, just like other plugins.
     var links = require("metalsmith-relative-links");
