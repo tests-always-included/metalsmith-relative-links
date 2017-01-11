@@ -140,18 +140,18 @@ This uses Jasmine, Istanbul and ESLint for tests.
 This plugin is licensed under the [MIT License][License] with an additional non-advertising clause.  See the [full license text][License] for information.
 
 
-[codecov-badge]: https://codecov.io/github/tests-always-included/metalsmith-relative-links/coverage.svg?branch=master
+[codecov-badge]: https://img.shields.io/codecov/c/github/tests-always-included/metalsmith-relative-links/master.svg
 [codecov-link]: https://codecov.io/github/tests-always-included/metalsmith-relative-links?branch=master
-[dependencies-badge]: https://david-dm.org/tests-always-included/metalsmith-relative-links.png
+[dependencies-badge]: https://img.shields.io/david/tests-always-included/metalsmith-relative-links.svg
 [dependencies-link]: https://david-dm.org/tests-always-included/metalsmith-relative-links
-[devdependencies-badge]: https://david-dm.org/tests-always-included/metalsmith-relative-links/dev-status.png
+[devdependencies-badge]: https://img.shields.io/david/dev/tests-always-included/metalsmith-relative-links.svg
 [devdependencies-link]: https://david-dm.org/tests-always-included/metalsmith-relative-links#info=devDependencies
 [License]: LICENSE.md
-[metalsmith-hbt-md]: https://github.com/ahdiaz/metalsmith-hbt-md
 [metalsmith-ancestry]: https://github.com/tests-always-included/metalsmith-ancestry
+[metalsmith-hbt-md]: https://github.com/ahdiaz/metalsmith-hbt-md
 [minimatch]: https://github.com/isaacs/minimatch
 [Mustache]: https://mustache.github.io/
-[npm-badge]: https://badge.fury.io/js/metalsmith-relative-links.svg
+[npm-badge]: https://img.shields.io/npm/v/metalsmith-relative-links.svg
 [npm-link]: https://npmjs.org/package/metalsmith-relative-links
-[travis-badge]: https://secure.travis-ci.org/tests-always-included/metalsmith-relative-links.png
+[travis-badge]: https://img.shields.io/travis/tests-always-included/metalsmith-relative-links/master.svg
 [travis-link]: http://travis-ci.org/tests-always-included/metalsmith-relative-links
