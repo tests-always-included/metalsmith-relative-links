@@ -34,6 +34,7 @@ describe("metalsmith-relative-links", function () {
         options = {};
         runPlugin({}, options);
         expect(options).toEqual({
+            emptyLink: "./",
             linkProperty: "link",
             match: "**/*",
             matchOptions: {},
@@ -41,11 +42,9 @@ describe("metalsmith-relative-links", function () {
         });
     });
     describe("default .modifyLinks()", function () {
-        var modifyLinks;
+        var modifyLinks, options;
 
         beforeEach(function () {
-            var options;
-
             options = {};
             runPlugin({}, options);
             modifyLinks = options.modifyLinks;
@@ -60,7 +59,15 @@ describe("metalsmith-relative-links", function () {
             expect(modifyLinks("folder/index.md")).toEqual("folder/");
         });
         it("eliminates index files at the root", function () {
-            expect(modifyLinks("index.html")).toEqual("");
+            expect(modifyLinks("index.html")).toEqual("./");
+        });
+        it("rewrites / to ./", function () {
+            expect(modifyLinks("/")).toEqual("./");
+        });
+        it("uses the empty link option for a value", function () {
+            options.emptyLink = "#";
+            expect(modifyLinks("/")).toEqual("#");
+            expect(modifyLinks("index.html")).toEqual("#");
         });
     });
     describe("options", function () {
