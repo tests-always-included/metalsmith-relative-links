@@ -112,6 +112,9 @@ describe("metalsmith-relative-links", function () {
                 options.modifyLinks = 7;
                 expect(link("x/index.html", "y/index.html")).toEqual("../y/index.html");
             });
+            it("does not make an absolute path when linking files off root", function () {
+                expect(link("a", "b")).toEqual("b");
+            });
         });
         describe(".from()", function () {
             it("links from parent file", function () {

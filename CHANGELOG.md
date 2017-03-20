@@ -2,6 +2,11 @@ Changelog
 =========
 
 
+1.1.1 - 2017-03-20
+------------------
+* Resolving links off the root are now relative. Previously, linking from "a" to "b" would produce "/b".
+
+
 1.1.0 - 2017-03-07
 ------------------
 
