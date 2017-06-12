@@ -90,7 +90,7 @@ And here is how to use JavaScript to include the plugin along with a brief descr
         // Pattern of files to match
         match: "**/*.htm,html",
 
-        // Options for matching files.  See minimatch.
+        // Options for matching files.  See metalsmith-plugin-kit.
         matchOptions: {},
 
         // Function to modify links.  See below.
@@ -99,7 +99,7 @@ And here is how to use JavaScript to include the plugin along with a brief descr
         }
     })
 
-This uses [minimatch] to match files.  The `.matchOptions` object can be filled with options that the [minimatch] library uses.
+This uses [metalsmith-plugin-kit] to match files. It allows options to configure the matching rules.
 
 The `modifyLinks()` function will, by default, change all `*.md` links into `*.html` and remove any `index.html` at the end of a URI.  If you'd like different behavior, this function is able to be replaced.  Let's say you wanted no file extensions ever and always create directory-style permalinks.  Here's a sample function that does just that.
 
@@ -343,7 +343,7 @@ This plugin is licensed under the [MIT License][License] with an additional non-
 [License]: LICENSE.md
 [metalsmith-ancestry]: https://github.com/tests-always-included/metalsmith-ancestry
 [metalsmith-hbt-md]: https://github.com/ahdiaz/metalsmith-hbt-md
-[minimatch]: https://github.com/isaacs/minimatch
+[metalsmith-plugin-kit]: https://github.com/fidian/metalsmith-plugin-kit
 [Mustache]: https://mustache.github.io/
 [npm-badge]: https://img.shields.io/npm/v/metalsmith-relative-links.svg
 [npm-link]: https://npmjs.org/package/metalsmith-relative-links
