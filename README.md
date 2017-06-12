@@ -298,14 +298,15 @@ Metalsmith's collection of file objects.
 Options for the middleware factory.
 
 **Kind**: inner typedef of [<code>module.exports</code>](#exp_module_metalsmith-relative-links--module.exports)
+**See**: [https://github.com/fidian/metalsmith-plugin-kit](https://github.com/fidian/metalsmith-plugin-kit)  
 **Properties**
 
 | Name | Type | Default | Description |
 | --- | --- | --- | --- |
 | emptyLink | <code>string</code> | <code>&quot;./&quot;</code> | If a link is empty, use this string instead. |
 | linkProperty | <code>string</code> | <code>&quot;link&quot;</code> | Property name to add to file metadata. |
-| match | <code>string</code> |  | Defaults to match all files. |
-| matchOptions | <code>Object</code> | <code>{}</code> | Additional options for matching files. |
+| match | <code>module:metalsmith-plugin-kit~matchList</code> |  | Defaults to match all files. |
+| matchOptions | <code>module:metalsmith-plugin-kit~matchOptions</code> | <code>{}</code> | Additional options for matching files. |
 | modifyLinks | <code>function</code> |  | Function to modify links. Default changes ".md" to ".html" and removes "index.html". |
 
 <a name="module_metalsmith-relative-links--module.exports..resolvable"></a>
