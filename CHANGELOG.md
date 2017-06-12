@@ -2,8 +2,16 @@ Changelog
 =========
 
 
+1.2.0 - 2017-06-12
+------------------
+
+* Using `metalsmigh-plugin-kit`.
+* Documentation updates.
+
+
 1.1.1 - 2017-03-20
 ------------------
+
 * Resolving links off the root are now relative. Previously, linking from "a" to "b" would produce "/b".
 
 

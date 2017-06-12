@@ -15,16 +15,13 @@ What It Does
 
 Each source file will have a `link()` function added to the metadata, allowing easier link generation.  There are also helper functions: `link.from()`, `link.to()`, and `link.resolve()`.  One would use these functions in templates to generate links to other resources.  This is an extremely handy plugin when you have a file tree in the metadata.  It works great with [metalsmith-hbt-md] and [metalsmith-ancestry].  Those two plugins will process [Mustache] templates in markdown and add a file hierarchy to the metadata.  It's useful for creating subpage listings:
 
-    {{#ancestry.children}}
-    * [{{title}}]({{link.from ancestry.parent}}) - {{summary}}
-    {{/ancestry.children}}
 
 Now you simply add another page to your sources and rerun Metalsmith.  Your index page is updated automatically.
 
 
 ### `link(from, to)`
 
-Returns a relative link between `from` and `to`.  If `from` is "tools/hammer.html" and `to` is "tools/hammer/claw.html", the link returned would be "hammer/claw.html".
+Returns a relative link between `from` and `to`.  If `from` is "tools/index.html" and `to` is "tools/hammers/claw.html", the link returned would be "hammers/claw.html".
 
 The `from` and `to` arguments are resolved to strings by `link.resolve()`.
 
@@ -124,6 +121,202 @@ For more complex behavior, the `modifyLinks()` function is passed additional arg
         // toResolved: The location of the link destination
         return resultThatYouWant;
     }
+
+
+API
+---
+
+<a name="module_metalsmith-relative-links"></a>
+
+## metalsmith-relative-links
+`metalsmith-relative-links` adds functions to the metadata that will
+generate relative links between different files in the build.
+
+**Example**  
+```js
+var relativeLinks = require("metalsmith-relative-links");
+
+// Make your metalsmith instance and add this like other middleware.
+metalsmith.use(relativeLinks({
+    // configuration goes here
+}));
+```
+
+* [metalsmith-relative-links](#module_metalsmith-relative-links)
+    * [module.exports(options)](#exp_module_metalsmith-relative-links--module.exports) ⇒ <code>function</code> ⏏
+        * [~modifyLinks(uri)](#module_metalsmith-relative-links--module.exports..modifyLinks) ⇒ <code>string</code>
+        * [~makeLinkFunction(allFiles, fileName)](#module_metalsmith-relative-links--module.exports..makeLinkFunction) ⇒ <code>function</code>
+            * [~link(from, to)](#module_metalsmith-relative-links--module.exports..makeLinkFunction..link) ⇒ <code>string</code>
+                * [.from(from)](#module_metalsmith-relative-links--module.exports..makeLinkFunction..link.from) ⇒ <code>string</code>
+                * [.resolve(what)](#module_metalsmith-relative-links--module.exports..makeLinkFunction..link.resolve) ⇒ <code>string</code>
+                * [.to(to)](#module_metalsmith-relative-links--module.exports..makeLinkFunction..link.to) ⇒ <code>string</code>
+        * [~metalsmithFile](#module_metalsmith-relative-links--module.exports..metalsmithFile) : <code>Object</code>
+        * [~metalsmithFileCollection](#module_metalsmith-relative-links--module.exports..metalsmithFileCollection) : <code>Object.&lt;string, metalsmith-relative-links~metalsmithFile&gt;</code>
+        * [~options](#module_metalsmith-relative-links--module.exports..options) : <code>Object</code>
+        * [~resolvable](#module_metalsmith-relative-links--module.exports..resolvable) : [<code>metalsmithFile</code>](#module_metalsmith-relative-links--module.exports..metalsmithFile) \| <code>string</code>
+
+<a name="exp_module_metalsmith-relative-links--module.exports"></a>
+
+### module.exports(options) ⇒ <code>function</code> ⏏
+Factory to build middleware for Metalsmith.
+
+**Kind**: Exported function
+**Params**
+
+- options [<code>options</code>](#module_metalsmith-relative-links--module.exports..options)
+
+<a name="module_metalsmith-relative-links--module.exports..modifyLinks"></a>
+
+#### module.exports~modifyLinks(uri) ⇒ <code>string</code>
+Default function for modifying links
+
+**Kind**: inner method of [<code>module.exports</code>](#exp_module_metalsmith-relative-links--module.exports)
+**Params**
+
+- uri <code>string</code>
+
+<a name="module_metalsmith-relative-links--module.exports..makeLinkFunction"></a>
+
+#### module.exports~makeLinkFunction(allFiles, fileName) ⇒ <code>function</code>
+Creates the link function and sets additional properties on the
+link function in order to easily resolve links or create links with
+a reference to a specific file object.
+
+**Kind**: inner method of [<code>module.exports</code>](#exp_module_metalsmith-relative-links--module.exports)
+**Params**
+
+- allFiles [<code>metalsmithFileCollection</code>](#module_metalsmith-relative-links--module.exports..metalsmithFileCollection)
+- fileName <code>string</code>
+
+
+* [~makeLinkFunction(allFiles, fileName)](#module_metalsmith-relative-links--module.exports..makeLinkFunction) ⇒ <code>function</code>
+    * [~link(from, to)](#module_metalsmith-relative-links--module.exports..makeLinkFunction..link) ⇒ <code>string</code>
+        * [.from(from)](#module_metalsmith-relative-links--module.exports..makeLinkFunction..link.from) ⇒ <code>string</code>
+        * [.resolve(what)](#module_metalsmith-relative-links--module.exports..makeLinkFunction..link.resolve) ⇒ <code>string</code>
+        * [.to(to)](#module_metalsmith-relative-links--module.exports..makeLinkFunction..link.to) ⇒ <code>string</code>
+
+<a name="module_metalsmith-relative-links--module.exports..makeLinkFunction..link"></a>
+
+##### makeLinkFunction~link(from, to) ⇒ <code>string</code>
+Return a relative URL between two things. This is the function
+that is generated for each file object provided by Metalsmith.
+
+**Kind**: inner method of [<code>makeLinkFunction</code>](#module_metalsmith-relative-links--module.exports..makeLinkFunction)
+**Params**
+
+- from [<code>resolvable</code>](#module_metalsmith-relative-links--module.exports..resolvable)
+- to [<code>resolvable</code>](#module_metalsmith-relative-links--module.exports..resolvable)
+
+**Example**  
+```js
+console.log(file.link("/a/b/c", "/d/e"));
+// "../../../d/e"
+```
+
+* [~link(from, to)](#module_metalsmith-relative-links--module.exports..makeLinkFunction..link) ⇒ <code>string</code>
+    * [.from(from)](#module_metalsmith-relative-links--module.exports..makeLinkFunction..link.from) ⇒ <code>string</code>
+    * [.resolve(what)](#module_metalsmith-relative-links--module.exports..makeLinkFunction..link.resolve) ⇒ <code>string</code>
+    * [.to(to)](#module_metalsmith-relative-links--module.exports..makeLinkFunction..link.to) ⇒ <code>string</code>
+
+<a name="module_metalsmith-relative-links--module.exports..makeLinkFunction..link.from"></a>
+
+###### link.from(from) ⇒ <code>string</code>
+Shorthand for calling `.link(from, thisFileObject)`
+
+**Kind**: static method of [<code>link</code>](#module_metalsmith-relative-links--module.exports..makeLinkFunction..link)
+**Params**
+
+- from [<code>resolvable</code>](#module_metalsmith-relative-links--module.exports..resolvable)
+
+<a name="module_metalsmith-relative-links--module.exports..makeLinkFunction..link.resolve"></a>
+
+###### link.resolve(what) ⇒ <code>string</code>
+Resolves a thing into a string.  Accepts file objects that are
+in the list of all source files, strings relative to the current
+file object's path (../whatever.html), strings relative to the
+root (/root.html).
+
+**Kind**: static method of [<code>link</code>](#module_metalsmith-relative-links--module.exports..makeLinkFunction..link)
+**Throws**:
+
+- <code>Error</code> when unable to figure out the link
+
+**Params**
+
+- what [<code>resolvable</code>](#module_metalsmith-relative-links--module.exports..resolvable)
+
+**Example**  
+```js
+console.log(file.link.resolve("../"))
+// "../"
+```
+**Example**  
+```js
+// file is the file object for /a/b/c
+console.log(file.link.resolve("/d/e"));
+// "../../../d/e"
+```
+**Example**  
+```js
+// file is the file object for /a/b/c
+// otherFile is the file object for /d/e
+console.log(file.link.resolve(otherFile));
+// "../../../d/e"
+```
+<a name="module_metalsmith-relative-links--module.exports..makeLinkFunction..link.to"></a>
+
+###### link.to(to) ⇒ <code>string</code>
+Shorthand for calling `.link(thisFileObject, to)`
+
+**Kind**: static method of [<code>link</code>](#module_metalsmith-relative-links--module.exports..makeLinkFunction..link)
+**Params**
+
+- to [<code>resolvable</code>](#module_metalsmith-relative-links--module.exports..resolvable)
+
+<a name="module_metalsmith-relative-links--module.exports..metalsmithFile"></a>
+
+#### module.exports~metalsmithFile : <code>Object</code>
+Metalsmith's file object that represents a single file.
+
+**Kind**: inner typedef of [<code>module.exports</code>](#exp_module_metalsmith-relative-links--module.exports)
+**Properties**
+
+| Name | Type |
+| --- | --- |
+| contents | <code>Buffer</code> | 
+| mode | <code>string</code> | 
+
+<a name="module_metalsmith-relative-links--module.exports..metalsmithFileCollection"></a>
+
+#### module.exports~metalsmithFileCollection : <code>Object.&lt;string, metalsmith-relative-links~metalsmithFile&gt;</code>
+Metalsmith's collection of file objects.
+
+**Kind**: inner typedef of [<code>module.exports</code>](#exp_module_metalsmith-relative-links--module.exports)
+<a name="module_metalsmith-relative-links--module.exports..options"></a>
+
+#### module.exports~options : <code>Object</code>
+Options for the middleware factory.
+
+**Kind**: inner typedef of [<code>module.exports</code>](#exp_module_metalsmith-relative-links--module.exports)
+**Properties**
+
+| Name | Type | Default | Description |
+| --- | --- | --- | --- |
+| emptyLink | <code>string</code> | <code>&quot;./&quot;</code> | If a link is empty, use this string instead. |
+| linkProperty | <code>string</code> | <code>&quot;link&quot;</code> | Property name to add to file metadata. |
+| match | <code>string</code> |  | Defaults to match all files. |
+| matchOptions | <code>Object</code> | <code>{}</code> | Additional options for matching files. |
+| modifyLinks | <code>function</code> |  | Function to modify links. Default changes ".md" to ".html" and removes "index.html". |
+
+<a name="module_metalsmith-relative-links--module.exports..resolvable"></a>
+
+#### module.exports~resolvable : [<code>metalsmithFile</code>](#module_metalsmith-relative-links--module.exports..metalsmithFile) \| <code>string</code>
+Something that can be resolved.
+
+* `string`: file path, both relative and root-relative.
+* `Object`: a file object.
+
+**Kind**: inner typedef of [<code>module.exports</code>](#exp_module_metalsmith-relative-links--module.exports)
 
 
 Development
