@@ -25,7 +25,7 @@
     },
     "homepage": "https://github.com/tests-always-included/metalsmith-relative-links#readme",
     "dependencies": {
-        "debug": "^2.6.8",
+        "debug": "^3.0.0",
         "metalsmith-plugin-kit": "^1.0.1"
     },
     "devDependencies": {
