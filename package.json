@@ -1,6 +1,6 @@
 {
     "name": "metalsmith-relative-links",
-    "version": "1.2.0",
+    "version": "1.3.0",
     "description": "Add a link function to your file objects so other Metalsmith plugins can create links more easily.",
     "tags": [
         "metalsmith",
@@ -11,6 +11,7 @@
     "scripts": {
         "clean": "rm -rf coverage node_modules/ package-lock.json",
         "readme": "jsdoc2md --template README.hbt --no-cache -f 'lib/**/*' --global-index-format grouped --property-list-format list --param-list-format list > README.md",
+        "reinstall": "npm run clean && npm install",
         "test": "istanbul cover jasmine && eslint lib spec && codecov",
         "watch": "nodemon --exec jasmine"
     },
@@ -25,15 +26,15 @@
     },
     "homepage": "https://github.com/tests-always-included/metalsmith-relative-links#readme",
     "dependencies": {
-        "debug": "^3.0.0",
-        "metalsmith-plugin-kit": "^1.0.1"
+        "debug": "^4.3.4",
+        "metalsmith-plugin-kit": "^1.3.0"
     },
     "devDependencies": {
-        "codecov": "^2.2.0",
-        "eslint": "^4.0.0",
+        "codecov": "^3.8.2",
+        "eslint": "^9.2.0",
         "istanbul": "^0.4.5",
-        "jasmine": "^2.6.0",
+        "jasmine": "^5.1.0",
         "jasmine-test-helpers": "^1.2.3",
-        "nodemon": "^1.11.0"
+        "nodemon": "^3.1.0"
     }
 }
